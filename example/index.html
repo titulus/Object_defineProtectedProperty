@@ -3,19 +3,24 @@
     <head>
         <script src="../object_spp.js"></script>
         <script type="text/javascript">
-function Class() {}
+// Main class
+class Class {}
+// setter of protected property
 Class.prototype.getA = function() {
 	return this.a;
 };
+// getter of protected property
 Class.prototype.setA = function(v) {
 	this.a = v;
 };
+// define protected property
 Object_setProtectedProperty(Class,'a');
 
-function SubClass() {}
-SubClass.prototype = Object.create(Class.prototype);
-
+// Sub Class and his object
+class SubClass extends Class{}
 var object = new SubClass();
+
+
 console.log(object); // -> {} (SubClass)
 console.log(object.a); // -> undefined
 console.log(object.getA()); // -> undefined
