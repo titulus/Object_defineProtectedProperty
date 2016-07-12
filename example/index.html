@@ -16,7 +16,7 @@ function SubClass() {}
 SubClass.prototype = Object.create(Class.prototype);
 
 var object = new SubClass();
-console.log(object); // -> {}
+console.log(object); // -> {} (SubClass)
 console.log(object.a); // -> undefined
 console.log(object.getA()); // -> undefined
 console.log(object.setA(1)); // -> 1
