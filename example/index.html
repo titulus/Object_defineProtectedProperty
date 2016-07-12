@@ -10,16 +10,19 @@ Class.prototype.getA = function() {
 Class.prototype.setA = function(v) {
 	this.a = v;
 };
-
 Object_setProtectedProperty(Class,'a');
 
 function SubClass() {}
 SubClass.prototype = Object.create(Class.prototype);
 
-var object = new Class();
-var subObject = new SubClass();
-console.log(object)
-console.log(subObject)
+var object = new SubClass();
+console.log(object); // -> {}
+console.log(object.a); // -> undefined
+console.log(object.getA()); // -> undefined
+console.log(object.setA(1)); // -> 1
+console.log(object.getA()); // -> 1
+console.log(object.a); // -> undefined
+console.log(object); // -> {}
         </script>>
     </head>
     <body>
