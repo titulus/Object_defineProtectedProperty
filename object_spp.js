@@ -1,11 +1,3 @@
-function Class() {}
-Class.prototype.getA = function() {
-	return this.a;
-};
-Class.prototype.setA = function(v) {
-	this.a = v;
-};
-
 function Object_setProtectedProperty(className,name) {
 	Object.defineProperty(className.prototype,name,{
 		 configurable: false
@@ -44,13 +36,3 @@ function Object_setProtectedProperty(className,name) {
 		}
 	})
 }
-
-Object_setProtectedProperty(Class,'a');
-
-function SubClass() {}
-SubClass.prototype = Object.create(Class.prototype);
-
-var object = new Class();
-var subObject = new SubClass();
-console.log(object)
-console.log(subObject)
