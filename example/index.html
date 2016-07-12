@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="../object_spp.js"></script>
+        <script type="text/javascript">
+function Class() {}
+Class.prototype.getA = function() {
+	return this.a;
+};
+Class.prototype.setA = function(v) {
+	this.a = v;
+};
+
+Object_setProtectedProperty(Class,'a');
+
+function SubClass() {}
+SubClass.prototype = Object.create(Class.prototype);
+
+var object = new Class();
+var subObject = new SubClass();
+console.log(object)
+console.log(subObject)
+        </script>>
+    </head>
+    <body>
+    </body>
+</html>
