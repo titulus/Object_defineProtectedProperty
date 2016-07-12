@@ -11,7 +11,6 @@ function Object_setProtectedProperty(className,name) {
 		 		}
 		 	}
 
-		 	console.log('inset:',inset);
 			return (inset)?this['_'+name]:undefined;
 		}
 		,set:function setProperty(v) {
@@ -24,7 +23,6 @@ function Object_setProtectedProperty(className,name) {
 		 		}
 		 	}
 
-		 	console.log('inset:',inset);
 		 	if (inset) {
 		 		Object.defineProperty(this,'_'+name,{
 					 enumerable: false
