@@ -21,33 +21,27 @@ class SubClass extends Class{}
 var object = new SubClass();
 
 
-console.log(object); // -> {} (SubClass)
-console.log(object.a); // -> undefined
-console.log(object.getA()); // -> undefined
+console.log('object:',JSON.stringify(object),'should be {}'); // -> {} (SubClass)
+console.log('object.a:',object.a,'should be',undefined,', because it wasn\'t set before'); // -> undefined
+console.log('object.getA():',object.getA(),'should be',undefined,', because of same reason'); // -> undefined
 
-console.info('set property');
+console.info('\tset property via `object.setA(1)`','this will update value of protected property [a]');
 object.setA(1); // will set _a property to 1
-console.log(object.getA(),'should be 1'); // -> 1
-console.log(object.a,'should be undefined'); // -> undefined
-console.log(object); // -> {_a:1}
-console.log(object._a); // -> 1
+console.log('object.getA():',object.getA(),'should be',1); // -> 1
+console.log('object.a:',object.a,'should be',undefined); // -> undefined
+console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
 
-console.info('try to change property');
-object._a = 2; // will be ignored
-console.log(object._a); // -> 1
-console.log(object.a,'should be undefined'); // -> undefined
-console.log(object.getA(),'should be 1'); // -> 1
+console.info('\ttry to change property via `object.a = 2`','this will be ignored, and makes no changes');
 object.a = 2; // will be ignored
-console.log(object._a); // -> 1
-console.log(object.a,'should be undefined'); // -> undefined
-console.log(object.getA(),'should be 1'); // -> 1
+console.log('object.a:',object.a,'should be',undefined); // -> undefined
+console.log('object.getA():',object.getA(),'should be',1); // -> 1
+console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
 
-console.info('update property');
+console.info('\tupdate property via `object.setA(3)`','this will update value again');
 object.setA(3); // will set _a property to 3
-console.log(object.getA(),'should be 3'); // -> 3
-console.log(object.a,'should be undefined'); // -> undefined
-console.log(object); // -> {_a:3}
-console.log(object._a); // -> 3
+console.log('object.getA():',object.getA(),'should be',3); // -> 3
+console.log('object.a:',object.a,'should be',undefined); // -> undefined
+console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
 
         </script>>
     </head>
