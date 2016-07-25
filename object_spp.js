@@ -16,7 +16,7 @@ function Object_setProtectedProperty(className,name) {
 
 		 	return undefined;
 		}
-		,set:function setProperty(v) {
+		,set:function setProperty(value) {
 			let inset = false
 		 	for (let i in className.prototype) {
 		 		if (!className.prototype.hasOwnProperty(i)) continue;
@@ -26,7 +26,7 @@ function Object_setProtectedProperty(className,name) {
 		 		};
 		 	};
 
-		 	if (inset) this[protectedProperty = Symbol()] = v;
+		 	if (inset) this[protectedProperty = Symbol()] = value;
 		}
 	});
 };
