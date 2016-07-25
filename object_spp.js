@@ -1,4 +1,5 @@
 function Object_setProtectedProperty(className,name) {
+	let protectedProperty;
 	Object.defineProperty(className.prototype,name,{
 		 configurable: false
 		,get:function getProperty() {
@@ -11,7 +12,7 @@ function Object_setProtectedProperty(className,name) {
 		 		};
 		 	};
 
-		 	if (inset) return this[Symbol.for(name)];
+		 	if (inset) return this[protectedProperty];
 
 		 	return undefined;
 		}
@@ -25,7 +26,7 @@ function Object_setProtectedProperty(className,name) {
 		 		};
 		 	};
 
-		 	if (inset) this[Symbol.for(name)] = v;
+		 	if (inset) this[protectedProperty = Symbol()] = v;
 		}
 	});
 };
