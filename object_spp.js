@@ -1,4 +1,4 @@
-function Object_setProtectedProperty(className,name) {
+function Object_defineProtectedProperty(className,name) {
 	function isCalledInbound(method) {
 		for (let i in className.prototype) {
 	 		if (!className.prototype.hasOwnProperty(i)) continue;
