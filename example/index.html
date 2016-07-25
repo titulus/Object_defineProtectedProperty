@@ -27,25 +27,25 @@ console.log(object.getA()); // -> undefined
 
 console.info('set property');
 object.setA(1); // will set _a property to 1
-console.log(object.getA()); // -> 1
-console.log(object.a); // -> undefined
+console.log(object.getA(),'should be 1'); // -> 1
+console.log(object.a,'should be undefined'); // -> undefined
 console.log(object); // -> {_a:1}
 console.log(object._a); // -> 1
 
 console.info('try to change property');
 object._a = 2; // will be ignored
 console.log(object._a); // -> 1
-console.log(object.a); // -> undefined
-console.log(object.getA()); // -> 1
+console.log(object.a,'should be undefined'); // -> undefined
+console.log(object.getA(),'should be 1'); // -> 1
 object.a = 2; // will be ignored
 console.log(object._a); // -> 1
-console.log(object.a); // -> undefined
-console.log(object.getA()); // -> 1
+console.log(object.a,'should be undefined'); // -> undefined
+console.log(object.getA(),'should be 1'); // -> 1
 
 console.info('update property');
 object.setA(3); // will set _a property to 3
-console.log(object.getA()); // -> 3
-console.log(object.a); // -> undefined
+console.log(object.getA(),'should be 3'); // -> 3
+console.log(object.a,'should be undefined'); // -> undefined
 console.log(object); // -> {_a:3}
 console.log(object._a); // -> 3
 
