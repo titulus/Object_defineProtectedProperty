@@ -1,8 +1,10 @@
 <!doctype html>
 <html>
     <head>
-        <script src="../object_spp.js"></script>
+        <script src="../object_dpp.js"></script>
         <script type="text/javascript">
+Object.prototype.defineProtectedProperty = Object_defineProtectedProperty;
+
 // Main class
 class Class {}
 // setter of protected property
@@ -13,8 +15,18 @@ Class.prototype.getA = function() {
 Class.prototype.setA = function(v) {
 	this.a = v;
 };
+
+// setter of protected property
+Class.prototype.getB = function() {
+	return this.b;
+};
+// getter of protected property
+Class.prototype.setB = function(v) {
+	this.b = v;
+};
 // define protected property
-Object_setProtectedProperty(Class,'a');
+Object.defineProtectedProperty(Class,'a');
+Object.defineProtectedProperty(Class,'b');
 
 // Sub Class and his object
 class SubClass extends Class{}
@@ -33,14 +45,17 @@ console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
 
 console.info('\ttry to change property via `object.a = 2`','this will be ignored, and makes no changes');
 object.a = 2; // will be ignored
-console.log('object.a:',object.a,'should be',undefined); // -> undefined
 console.log('object.getA():',object.getA(),'should be',1); // -> 1
+console.log('object.a:',object.a,'should be',undefined); // -> undefined
 console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
 
 console.info('\tupdate property via `object.setA(3)`','this will update value again');
-object.setA(3); // will set _a property to 3
-console.log('object.getA():',object.getA(),'should be',3); // -> 3
+object.setB(3); // will set _a property to 3
+console.log('object.getA():',object.getA(),'should be',1); // -> 3
 console.log('object.a:',object.a,'should be',undefined); // -> undefined
+console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
+console.log('object.getB():',object.getB(),'should be',3); // -> 3
+console.log('object.b:',object.b,'should be',undefined); // -> undefined
 console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
 
         </script>>
