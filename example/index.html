@@ -25,8 +25,8 @@ Class.prototype.setB = function(v) {
 	this.b = v;
 };
 // define protected property
-Object.defineProtectedProperty(Class,'a');
-Object.defineProtectedProperty(Class,'b');
+Object.defineProtectedProperty(Class.prototype,'a');
+Object.defineProtectedProperty(Class.prototype,'b');
 
 // Sub Class and his object
 class SubClass extends Class{}

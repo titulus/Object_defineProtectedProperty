@@ -1,14 +1,14 @@
-function Object_defineProtectedProperty(className,name) {
+function Object_defineProtectedProperty(obj,prop) {
 	function isCalledInbound(method) {
-		for (let i in className.prototype) {
-	 		if (!className.prototype.hasOwnProperty(i)) continue;
-	 		if (method.caller === className.prototype[i]) return true;
+		for (let i in obj) {
+	 		if (!obj.hasOwnProperty(i)) continue;
+	 		if (method.caller === obj[i]) return true;
 	 	};
 	 	return false;
 	};
 
 	let protectedProperty;
-	Object.defineProperty(className.prototype,name,{
+	Object.defineProperty(obj,prop,{
 		 configurable: false
 		,get:function getProperty() {
 		 	if (isCalledInbound(getProperty)) return this[protectedProperty];
@@ -17,7 +17,7 @@ function Object_defineProtectedProperty(className,name) {
 		}
 		,set:function setProperty(value) {
 			if (!protectedProperty) protectedProperty = Symbol();
-			
+
 		 	if (isCalledInbound(setProperty)) this[protectedProperty] = value;
 		}
 	});
