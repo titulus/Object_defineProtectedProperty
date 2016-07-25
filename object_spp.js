@@ -11,7 +11,9 @@ function Object_setProtectedProperty(className,name) {
 		 		}
 		 	}
 
-			return (inset)?this[Symbol.for(name)]:undefined;
+		 	if (inset) return this[Symbol.for(name)];
+
+		 	return undefined;
 		}
 		,set:function setProperty(v) {
 			var inset = false
@@ -23,9 +25,7 @@ function Object_setProtectedProperty(className,name) {
 		 		}
 		 	}
 
-		 	if (inset) {
-		 		this[Symbol.for(name)] = v;
-		 	}
+		 	if (inset) this[Symbol.for(name)] = v;
 		}
 	})
 }
