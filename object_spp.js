@@ -8,8 +8,8 @@ function Object_setProtectedProperty(className,name) {
 		 		if (getProperty.caller === className.prototype[i]) {
 		 			inset = true;
 		 			break;
-		 		}
-		 	}
+		 		};
+		 	};
 
 		 	if (inset) return this[Symbol.for(name)];
 
@@ -22,10 +22,10 @@ function Object_setProtectedProperty(className,name) {
 		 		if (setProperty.caller === className.prototype[i]) {
 		 			inset = true;
 		 			break;
-		 		}
-		 	}
+		 		};
+		 	};
 
 		 	if (inset) this[Symbol.for(name)] = v;
 		}
-	})
-}
+	});
+};
