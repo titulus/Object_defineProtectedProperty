@@ -16,7 +16,9 @@ function Object_defineProtectedProperty(className,name) {
 		 	return undefined;
 		}
 		,set:function setProperty(value) {
-		 	if (isCalledInbound(setProperty)) this[protectedProperty = Symbol()] = value;
+			if (!protectedProperty) protectedProperty = Symbol();
+			
+		 	if (isCalledInbound(setProperty)) this[protectedProperty] = value;
 		}
 	});
 };
