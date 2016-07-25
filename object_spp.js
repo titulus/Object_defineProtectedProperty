@@ -2,8 +2,8 @@ function Object_setProtectedProperty(className,name) {
 	Object.defineProperty(className.prototype,name,{
 		 configurable: false
 		,get:function getProperty() {
-		 	var inset = false
-		 	for (var i in className.prototype) {
+		 	let inset = false
+		 	for (let i in className.prototype) {
 		 		if (!className.prototype.hasOwnProperty(i)) continue;
 		 		if (getProperty.caller === className.prototype[i]) {
 		 			inset = true;
@@ -16,8 +16,8 @@ function Object_setProtectedProperty(className,name) {
 		 	return undefined;
 		}
 		,set:function setProperty(v) {
-			var inset = false
-		 	for (var i in className.prototype) {
+			let inset = false
+		 	for (let i in className.prototype) {
 		 		if (!className.prototype.hasOwnProperty(i)) continue;
 		 		if (setProperty.caller === className.prototype[i]) {
 		 			inset = true;
