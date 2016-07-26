@@ -11,14 +11,12 @@ function Object_defineProtectedProperty(obj,prop) {
 	Object.defineProperty(obj,prop,{
 		 configurable: false
 		,get:function getProperty() {
-		 	if (isCalledInbound(getProperty)) return this[protectedProperty];
+		 	if (isCalledInbound(getProperty)) return protectedProperty;
 
 		 	return undefined;
 		}
 		,set:function setProperty(value) {
-			if (!protectedProperty) protectedProperty = Symbol();
-
-		 	if (isCalledInbound(setProperty)) this[protectedProperty] = value;
+		 	if (isCalledInbound(setProperty)) protectedProperty = value;
 		}
 	});
 };
