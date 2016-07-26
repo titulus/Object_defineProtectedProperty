@@ -6,17 +6,16 @@ function Object_defineProtectedProperty(obj,prop,descriptor) {
 	 	};
 	 	return false;
 	};
-
-	let protectedProperty = (descriptor)?descriptor.value:undefined;
+	let protectedProperties = new WeakMap();
 	Object.defineProperty(obj,prop,{
 		 configurable: false
 		,get:function getProperty() {
-		 	if (isCalledInbound(getProperty)) return protectedProperty;
+		 	if (isCalledInbound(getProperty)) return protectedProperties.get(this);
 
 		 	return undefined;
 		}
 		,set:function setProperty(value) {
-		 	if (isCalledInbound(setProperty)) protectedProperty = value;
+		 	if (isCalledInbound(setProperty)) protectedProperties.set(this,value);
 		}
 	});
 };

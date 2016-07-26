@@ -65,6 +65,10 @@ console.log('object.b:',object.b,'should be',undefined); // -> undefined
 console.log('object.getB():',object.getB(),'should be',2); // -> 2
 console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
 
+console.info('\tcreate new SubClass child and check his `.getA()`','this should return undependent protected property [a]');
+var o = new SubClass()
+console.log('o.getA():',o.getA(),'should be',undefined) // -> undefined
+
         </script>
     </head>
     <body>
