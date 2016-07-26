@@ -11,8 +11,6 @@ function Object_defineProtectedProperty(obj,prop,descriptor) {
 		 configurable: false
 		,get:function getProperty() {
 		 	if (isCalledInbound(getProperty)) return protectedProperties.get(this);
-
-		 	return undefined;
 		}
 		,set:function setProperty(value) {
 		 	if (isCalledInbound(setProperty)) protectedProperties.set(this,value);
