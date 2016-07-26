@@ -1,4 +1,4 @@
-function Object_defineProtectedProperty(obj,prop) {
+function Object_defineProtectedProperty(obj,prop,descriptor) {
 	function isCalledInbound(method) {
 		for (let i in obj) {
 	 		if (!obj.hasOwnProperty(i)) continue;
@@ -7,7 +7,7 @@ function Object_defineProtectedProperty(obj,prop) {
 	 	return false;
 	};
 
-	let protectedProperty;
+	let protectedProperty = (descriptor)?descriptor.value:undefined;
 	Object.defineProperty(obj,prop,{
 		 configurable: false
 		,get:function getProperty() {
