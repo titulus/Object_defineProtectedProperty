@@ -6,7 +6,11 @@
 Object.prototype.defineProtectedProperty = Object_defineProtectedProperty;
 
 // Main class
-class Class {}
+class Class {
+    constructor() {
+        Object.defineProtectedProperty(this,'a');
+    }
+}
 // setter of protected property
 Class.prototype.getA = function() {
 	return this.a;
@@ -25,7 +29,6 @@ Class.prototype.setB = function(v) {
 	this.b = v;
 };
 // define protected property
-Object.defineProtectedProperty(Class.prototype,'a');
 Object.defineProtectedProperty(Class.prototype,'b',{value:4});
 
 // Sub Class and his object
@@ -68,6 +71,7 @@ console.log('object:',JSON.stringify(object),'should be {}'); // -> {}
 console.info('\tcreate new SubClass child and check his `.getA()`','this should return undependent protected property [a]');
 var o = new SubClass()
 console.log('o.getA():',o.getA(),'should be',undefined) // -> undefined
+console.log('o.getB():',o.getB(),'should be',2) // -> 2
 
         </script>
     </head>
