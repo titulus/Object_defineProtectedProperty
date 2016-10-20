@@ -1,0 +1,28 @@
+{
+  "name": "object_define-protected-property",
+  "version": "0.1.0",
+  "description": "little ugly solution provides protected properties for JS objects",
+  "main": "object_dpp.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titulus/Object_defineProtectedProperty.git"
+  },
+  "keywords": [
+    "object",
+    "protected",
+    "property",
+    "definition"
+  ],
+  "author": "Titulus Desiderio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/titulus/Object_defineProtectedProperty/issues"
+  },
+  "homepage": "https://github.com/titulus/Object_defineProtectedProperty#readme"
+}
