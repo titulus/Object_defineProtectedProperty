@@ -6,8 +6,9 @@ function Object_defineProtectedProperty(obj,prop,descriptor) {
 	 	return false;
 	};
 	let protectedProperty = (descriptor)?descriptor.value:undefined;
+	let configurable = (!descriptor)?false:descriptor.configurable||false;
 	Object.defineProperty(obj,prop,{
-		 configurable: false
+		 configurable: configurable
 		,get:function getProperty() {
 		 	if (isCalledInbound(getProperty)) return protectedProperty;
 		}
