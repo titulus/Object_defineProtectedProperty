@@ -1,6 +1,6 @@
 {
   "name": "object_define-protected-property",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "little ugly solution provides protected properties for JS objects",
   "main": "object_dpp.js",
   "directories": {
