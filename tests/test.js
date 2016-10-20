@@ -131,11 +131,18 @@ describe('define with value',function(){
 describe('redefineable protectedProperty',function(){
     const testingObject = {
         id:'testingObject'
+        ,setProtected:function(value){
+            this.protectedProperty = value;
+        }
+        ,getProtected:function(){
+            return this.protectedProperty;
+        }
     };
     Object_defineProtectedProperty(testingObject,'protectedProperty',{configurable:true});
-    it('protectedProperty throws error when redifined',function(){
+    it('protectedProperty successfully redifined',function(){
         assert.doesNotThrow(function(){
-            Object_defineProtectedProperty(testingObject,'protectedProperty');
+            Object_defineProtectedProperty(testingObject,'protectedProperty',{value:'setted while redifined'});
         },Error,'Object_defineProtectedProperty should not throw Error when called for already defined protectedProperty with descriptor.configurable==true');
+        assert.equal(testingObject.getProtected(),'setted while redifined','getProtected() should return "setted while redifined" after redifining');
     });
 });
